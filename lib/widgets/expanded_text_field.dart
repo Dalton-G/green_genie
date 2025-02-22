@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:green_genie/config/theme.dart';
 
 Expanded expandedTextField({
-  required double width,
   required double height,
   required String labelText,
   required TextEditingController textController,
@@ -19,7 +18,6 @@ Expanded expandedTextField({
             textAlign: TextAlign.start,
           ),
           SizedBox(
-            width: width,
             height: height * 0.06,
             child: TextFormField(
               keyboardType: TextInputType.number,

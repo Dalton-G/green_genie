@@ -7,7 +7,7 @@ part of 'transportation_request_provider.dart';
 // **************************************************************************
 
 String _$transportationRequestStateHash() =>
-    r'5457fd1f2be94c8f5bbe505f09aa1c49cafafcf1';
+    r'2d7ebc1e128b31042cfacf0e4ff9abfc005bb23c';
 
 /// See also [TransportationRequestState].
 @ProviderFor(TransportationRequestState)

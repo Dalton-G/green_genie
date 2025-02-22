@@ -1,6 +1,6 @@
-import 'package:green_genie/data/distance_unit.dart';
-import 'package:green_genie/data/fuel_type.dart';
-import 'package:green_genie/data/vehicle_type.dart';
+import 'package:green_genie/data/transportation/distance_unit.dart';
+import 'package:green_genie/data/transportation/fuel_type.dart';
+import 'package:green_genie/data/transportation/vehicle_type.dart';
 
 class TransportationRequest {
   final VehicleType vehicleType;

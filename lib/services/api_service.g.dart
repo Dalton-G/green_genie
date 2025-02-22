@@ -57,6 +57,44 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<CarbonEmissionResponse> estimateElectricityEmission(
+    ElectricityRequest request,
+    String bearerToken,
+    String apiHost,
+    String apiKey,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{
+      r'Authorization': bearerToken,
+      r'x-rapidapi-host': apiHost,
+      r'x-rapidapi-key': apiKey,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<CarbonEmissionResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/electricity_estimate',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CarbonEmissionResponse _value;
+    try {
+      _value = CarbonEmissionResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

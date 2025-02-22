@@ -1,7 +1,7 @@
-import 'package:green_genie/data/distance_unit.dart';
-import 'package:green_genie/data/fuel_type.dart';
-import 'package:green_genie/data/vehicle_type.dart';
-import 'package:green_genie/model/transportation_request.dart';
+import 'package:green_genie/data/transportation/distance_unit.dart';
+import 'package:green_genie/data/transportation/fuel_type.dart';
+import 'package:green_genie/data/transportation/vehicle_type.dart';
+import 'package:green_genie/model/request/transportation_request.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'transportation_request_provider.g.dart';

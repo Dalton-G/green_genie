@@ -1,14 +1,14 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:green_genie/model/carbon_emission_response.dart';
-import 'package:green_genie/model/transportation_request.dart';
+import 'package:green_genie/model/request/electricity_request.dart';
+import 'package:green_genie/model/response/carbon_emission_response.dart';
 import 'package:green_genie/services/api_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:dio/dio.dart';
 
-part 'carbon_api_response_provider.g.dart';
+part 'electricity_response_provider.g.dart';
 
 @riverpod
-class CarbonApiState extends _$CarbonApiState {
+class ElectricityResponse extends _$ElectricityResponse {
   late final ApiService _apiService;
 
   @override
@@ -18,11 +18,10 @@ class CarbonApiState extends _$CarbonApiState {
     return Future.value(null);
   }
 
-  Future<void> calculateTransportationEmission(
-      TransportationRequest request) async {
+  Future<void> calculateElectricityEmission(ElectricityRequest request) async {
     try {
       state = const AsyncLoading();
-      final response = await _apiService.estimateVehicleEmission(
+      final response = await _apiService.estimateElectricityEmission(
         request,
         dotenv.env['AUTH_BEARER_TOKEN']!,
         dotenv.env['RAPIDAPI_HOST']!,
